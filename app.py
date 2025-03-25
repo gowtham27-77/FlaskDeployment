@@ -13,7 +13,7 @@ model = joblib.load('iris_model.pkl')
 def home():
     return render_template('home.html')
 @app.route('/predict', methods=['POST'])
-def predict
+def predict():
     try:
            features = [float(request.form[f'feature{i}']) for i in range(1, 5)]
     except ValueError:
@@ -22,7 +22,7 @@ def predict
     class_names = ['Setosa', 'Verstcolor', 'Virginica']
     result = class_names[prediction]
     return render_template('result.html', prediction=result)
-if__name__=='main':
+if __name__ == '__main__':
     app.run(debug=True)
 
 
